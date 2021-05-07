@@ -8,17 +8,22 @@ import {
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
-import { getFeed } from "./feedApi";
+import { getFeed, submitTweet } from "./feedApi";
 
 export default function FeedPage() {
   const [tweets, setTweets] = useState<Tweet[]>([]);
   const [tweetInputValue, setTweetInputValue] = useState<String>("");
 
   useEffect(() => {
-    getFeed().then((tweets) => setTweets(tweets));
+    getTweets();
   }, []);
 
-  function submit(evt: SyntheticEvent) {
+  async function getTweets() {
+    const tweets = await getFeed();
+    setTweets(tweets);
+  }
+
+  async function submit(evt: SyntheticEvent) {
     evt.preventDefault();
 
     const value = tweetInputValue?.trim();
@@ -27,8 +32,9 @@ export default function FeedPage() {
       return;
     }
 
-    alert("TWEETED" + value);
+    await submitTweet({ text: value });
     setTweetInputValue("");
+    await getTweets();
   }
 
   return (
