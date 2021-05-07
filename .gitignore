@@ -1,1 +1,4 @@
 node_modules/
+
+packages/frontend/.cache
+packages/frontend/dist
