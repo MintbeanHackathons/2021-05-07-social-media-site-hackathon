@@ -1,11 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import LoginPage from "./auth/LoginPage";
-import TweetPage from "./feed/FeedPage";
 import MainBar from "./layout/MainBar";
 import LeftBar from "./layout/LeftBar";
 import RightBar from "./layout/RightBar";
+
+import LoginPage from "./auth/LoginPage";
+import ProfilePage from "./auth/ProfilePage";
+import ResetPasswordPage from "./auth/ResetPasswordPage";
+import LogoutPage from "./auth/LogoutPage";
 import FeedPage from "./feed/FeedPage";
+import NotFoundPage from "./layout/NotFoundPage";
 
 export default function App() {
   return (
@@ -17,21 +21,19 @@ export default function App() {
             <Route path="/" exact>
               <FeedPage />
             </Route>
-            <Route path="/tweet/:id" exact>
-              <TweetPage />
-            </Route>
             <Route path="/auth/login">
               <LoginPage />
             </Route>
             <Route path="/auth/reset">
-              <p>TODO: Password Reset</p>
+              <ResetPasswordPage />
             </Route>
             <Route path="/auth/logout">
-              <p>TODO: Logout</p>
+              <LogoutPage />
             </Route>
             <Route path="/auth/profile">
-              <p>TODO: Profile</p>
+              <ProfilePage />
             </Route>
+            <Route component={NotFoundPage} />
           </Switch>
         </MainBar>
         <RightBar />
