@@ -1,6 +1,12 @@
 interface Tweet {
   id: number;
-  userId: number;
+  user: User;
   text: string;
   createdAt: string;
+}
+
+interface User {
+  id: number;
+  fullName: string;
+  handle: string;
 }
