@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "concurrently 'cd packages/backend && yarn start' 'cd packages/frontend && yarn start'",
-    "dev": "concurrently 'cd packages/backend && yarn dev' 'cd packages/frontend && yarn dev'"
+    "dev": "concurrently 'cd packages/backend && yarn dev' 'cd packages/frontend && yarn dev'",
+    "dropdb": "cd packages/backend && yarn dropdb"
   },
   "devDependencies": {
     "concurrently": "^6.0.2"

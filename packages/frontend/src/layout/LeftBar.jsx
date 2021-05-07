@@ -43,16 +43,12 @@ export default function LeftBar() {
         <Grid item xs={6} /> {/* Leave half the column */}
         <Grid item xs={6}>
           <Grid container>
-            <NavRow>Twitterbean</NavRow>
             <NavItem to="/">Home</NavItem>
             {state.user ? (
               <NavItem to="/auth/logout">Logout</NavItem>
             ) : (
               <NavItem to="/auth/login">Login</NavItem>
             )}
-            <NavRow>
-              <NavButton>Tweet</NavButton>
-            </NavRow>
           </Grid>
         </Grid>
       </Grid>

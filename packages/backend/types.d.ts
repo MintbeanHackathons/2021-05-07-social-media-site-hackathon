@@ -10,7 +10,6 @@ interface Tweet {
 
 interface User {
   _id: number;
-  fullName: string;
   handle: string;
 }
 

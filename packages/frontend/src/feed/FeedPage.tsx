@@ -55,12 +55,12 @@ export default function FeedPage() {
         </form>
       </Paper>
       {tweets.map((tweet) => (
-        <Paper elevation={1} key={tweet.id}>
-          <Box>
-            {tweet.user.fullName} | {tweet.user.handle}
-          </Box>
-          <Box>{tweet.text}</Box>
-        </Paper>
+        <Box key={tweet._id} padding={1}>
+          <Paper elevation={1}>
+            <Box padding={1}>@{tweet.user.handle}</Box>
+            <Box padding={1}>{tweet.text}</Box>
+          </Paper>
+        </Box>
       ))}
     </Grid>
   );

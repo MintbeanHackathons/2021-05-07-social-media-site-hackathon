@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node index.js",
-    "dev": "ts-node-dev index.js"
+    "dev": "ts-node-dev index.js",
+    "dropdb": "ts-node scripts/dropdb.js"
   },
   "dependencies": {
     "@types/bcrypt": "^3.0.1",

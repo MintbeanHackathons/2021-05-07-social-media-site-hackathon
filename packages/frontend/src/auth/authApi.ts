@@ -14,3 +14,7 @@ export async function register(
 export async function checkSession(): Promise<User | null> {
   return get("api/auth/check");
 }
+
+export async function logout(): Promise<void> {
+  return post("api/auth/logout");
+}

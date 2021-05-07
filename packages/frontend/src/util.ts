@@ -8,13 +8,18 @@ export function get<T = any>(url: string): Promise<T> {
   }).then((response) => response.json());
 }
 
-export function post<T = any>(url: string, body: Object): Promise<T> {
-  return fetch(root + url, {
+export function post<T = any>(url: string, body?: Object): Promise<T> {
+  const opts: RequestInit = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    body: JSON.stringify(body),
-  }).then((response) => response.json());
+  };
+
+  if (body) {
+    opts.body = JSON.stringify(body);
+  }
+
+  return fetch(root + url, opts).then((response) => response.json());
 }

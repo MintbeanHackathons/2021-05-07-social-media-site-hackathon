@@ -7,11 +7,12 @@ const path = require("path");
 const requireAll = require("require-all");
 const cors = require("cors");
 const session = require("express-session");
+const { mongoConnectionString } = require("./constants");
 
 const app = express();
 
 // connect to the DB
-mongoose.connect("mongodb://localhost/twitterbean", {
+mongoose.connect(mongoConnectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

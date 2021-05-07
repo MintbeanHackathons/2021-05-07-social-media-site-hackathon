@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Grid } from "@material-ui/core";
+import { AppBar, Grid, Typography } from "@material-ui/core";
 
 import MainBar from "./layout/MainBar";
 import LeftBar from "./layout/LeftBar";
@@ -17,35 +17,38 @@ import { checkSession } from "./auth/authApi";
 export default function App() {
   return (
     <StateProvider>
-      <div>
-        <Router>
-          <Switch>
-            <Route path="/auth/login">
-              <LoginPage />
-            </Route>
-            <Route path="/auth/register">
-              <RegisterPage />
-            </Route>
-            <Route>
-              <Grid container>
-                <LeftBar />
-                <MainBar>
-                  <Switch>
-                    <Route path="/" exact>
-                      <FeedPage />
-                    </Route>
-                    <Route path="/auth/logout">
-                      <LogoutPage />
-                    </Route>
-                    <Route component={NotFoundPage} />
-                  </Switch>
-                </MainBar>
-                <RightBar />
-              </Grid>
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+      <AppBar position="static" style={{ marginBottom: 24 }}>
+        <Typography variant="h6" style={{ padding: 12 }}>
+          Twitterbean
+        </Typography>
+      </AppBar>
+      <Router>
+        <Switch>
+          <Route path="/auth/login">
+            <LoginPage />
+          </Route>
+          <Route path="/auth/register">
+            <RegisterPage />
+          </Route>
+          <Route>
+            <Grid container>
+              <LeftBar />
+              <MainBar>
+                <Switch>
+                  <Route path="/" exact>
+                    <FeedPage />
+                  </Route>
+                  <Route path="/auth/logout">
+                    <LogoutPage />
+                  </Route>
+                  <Route component={NotFoundPage} />
+                </Switch>
+              </MainBar>
+              <RightBar />
+            </Grid>
+          </Route>
+        </Switch>
+      </Router>
     </StateProvider>
   );
 }

@@ -30,7 +30,7 @@ export default function LoginPage() {
 
   return (
     <Grid container>
-      <Grid item xs={8} style={{ backgroundColor: "black", height: "vh-100" }}>
+      <Grid item xs={8}>
         {/* Empty grid for spacing */}
       </Grid>
       <Grid item xs={4}>
