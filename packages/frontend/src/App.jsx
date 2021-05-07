@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
@@ -7,10 +7,12 @@ import LeftBar from "./layout/LeftBar";
 import RightBar from "./layout/RightBar";
 
 import LoginPage from "./auth/LoginPage";
+import RegisterPage from "./auth/RegisterPage";
 import LogoutPage from "./auth/LogoutPage";
 import FeedPage from "./feed/FeedPage";
 import NotFoundPage from "./layout/NotFoundPage";
-import StateProvider from "./StateProvider";
+import StateProvider, { StateContext } from "./StateProvider";
+import { checkSession } from "./auth/authApi";
 
 export default function App() {
   return (
@@ -20,6 +22,9 @@ export default function App() {
           <Switch>
             <Route path="/auth/login">
               <LoginPage />
+            </Route>
+            <Route path="/auth/register">
+              <RegisterPage />
             </Route>
             <Route>
               <Grid container>

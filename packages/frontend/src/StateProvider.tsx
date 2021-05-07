@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useReducer, createContext } from "react";
+import { checkSession } from "./auth/authApi";
 
 // see https://reactjs.org/docs/hooks-reference.html#usereducer
 
@@ -10,6 +11,7 @@ const initialState: State = {
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "setUser":
+      debugger;
       return { ...state, user: action.payload };
     case "unsetUser":
       return { ...state, user: null };
@@ -23,11 +25,24 @@ export type ContextType = {
 
 export const StateContext = createContext<ContextType>({
   state: initialState,
-  dispatch: () => alert("Initial"),
+  dispatch: () => alert("Initial dispatcher. This should never be called."),
 });
 
 export default function StateProvider(props: any) {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    checkSession().then((user) => {
+      if (user && user._id) {
+        // this sets the session
+        dispatch({
+          type: "setUser",
+          payload: user,
+        });
+      }
+    });
+  }, []);
+
   console.log("STATE", state);
 
   return (

@@ -1,7 +1,7 @@
 import { FormControl, Grid, Input, Box } from "@material-ui/core";
 import React, { useContext, useState } from "react";
 import { StateContext, ContextType } from "../StateProvider";
-import { login } from "./authApi";
+import { register } from "./authApi";
 import { Link, Redirect } from "react-router-dom";
 
 export default function LoginPage() {
@@ -13,7 +13,7 @@ export default function LoginPage() {
     evt.preventDefault();
 
     try {
-      const user = await login(handle, password);
+      const user = await register(handle, password);
       dispatch({
         type: "setUser",
         payload: user,
@@ -58,10 +58,10 @@ export default function LoginPage() {
                 />
               </FormControl>
               <FormControl fullWidth>
-                <Input type="submit" value="Login"></Input>
+                <Input type="submit" value="Register"></Input>
               </FormControl>
             </form>
-            Don't have an account? <Link to="/auth/register">Sign Up</Link>.
+            Already have an account? <Link to="/auth/login">Sign in</Link>.
           </Grid>
         </Grid>
       </Grid>

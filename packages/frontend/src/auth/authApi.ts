@@ -1,19 +1,16 @@
+import { post, get } from "../util";
+
 export async function login(handle: string, password: string): Promise<User> {
-  return {
-    id: 1,
-    fullName: "John Doe",
-    handle: "johndoe",
-  };
+  return post("api/auth/login", { handle, password });
 }
 
-export async function logout(): Promise<void> {
-  return Promise.resolve();
+export async function register(
+  handle: string,
+  password: string
+): Promise<User> {
+  return post("api/auth/register", { handle, password });
 }
 
 export async function checkSession(): Promise<User | null> {
-  return {
-    id: 1,
-    fullName: "John Doe",
-    handle: "johndoe",
-  };
+  return get("api/auth/check");
 }

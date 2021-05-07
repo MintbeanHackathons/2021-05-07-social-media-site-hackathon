@@ -4,6 +4,8 @@ const authRoutes = require("../backend/auth/routes");
 const mongoose = require("mongoose");
 const path = require("path");
 const requireAll = require("require-all");
+const cors = require("cors");
+const session = require("express-session");
 
 const app = express();
 
@@ -20,10 +22,28 @@ requireAll({
   filter: ".*(js|ts)",
 });
 
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
+app.set("trust proxy", true);
+
 // enable app to use JSON bodies in POST requests.
 app.use(json());
+app.use(
+  session({
+    secret: "secret phrase",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: false,
+    },
+  })
+);
 
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 const server = app.listen(3000, () => {
   console.log("Now listening on port:", server.address().port);

@@ -8,17 +8,20 @@ export default function LogoutPage() {
   const { user } = state;
 
   useEffect(() => {
-    logout().then(() => {
-      dispatch({
-        type: "unsetUser",
-        payload: null,
-      });
+    // clear cookies
+    document.cookie.split(";").forEach(function (c) {
+      document.cookie = c
+        .replace(/^ +/, "")
+        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
     });
+
+    // reload
+    location.reload();
   }, []);
 
   if (!user) {
     return <Redirect to="/auth/login" />;
   }
 
-  return <div>TODO: LogoutPage</div>;
+  return <div>Logging out...</div>;
 }

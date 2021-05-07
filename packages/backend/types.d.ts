@@ -1,12 +1,21 @@
+import { Request } from "express";
+import { Session } from "express-session";
+
 interface Tweet {
-  id: number;
+  _id: number;
   user: User;
   text: string;
   createdAt: string;
 }
 
 interface User {
-  id: number;
+  _id: number;
   fullName: string;
   handle: string;
+}
+
+declare module "express-session" {
+  interface SessionData {
+    userId: string;
+  }
 }
