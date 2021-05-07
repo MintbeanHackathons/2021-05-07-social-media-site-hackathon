@@ -10,6 +10,7 @@ const session = require("express-session");
 const { mongoConnectionString } = require("./constants");
 
 const app = express();
+app.use(express.static("public"));
 
 // connect to the DB
 mongoose.connect(mongoConnectionString, {

@@ -14,6 +14,7 @@
   "scripts": {
     "start": "concurrently 'cd packages/backend && yarn start' 'cd packages/frontend && yarn start'",
     "dev": "concurrently 'cd packages/backend && yarn dev' 'cd packages/frontend && yarn dev'",
+    "build": "cd packages/frontend && yarn build && mv dist ../backend/public",
     "dropdb": "cd packages/backend && yarn dropdb"
   },
   "devDependencies": {

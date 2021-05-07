@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "echo 'Frontend start command is disabled.'",
+    "build": "parcel build index.html",
     "dev": "parcel index.html "
   },
   "devDependencies": {
