@@ -1,8 +1,9 @@
 import Grid from "@material-ui/core/Grid";
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { StateContext } from "../StateProvider";
 
 const useStyles = makeStyles({
   navItemLink: {
@@ -34,6 +35,8 @@ const NavItem = ({ children, to }) => {
 };
 
 export default function LeftBar() {
+  const { state, dispatch } = useContext(StateContext);
+
   return (
     <Grid item xs={4}>
       <Grid container>
@@ -42,7 +45,11 @@ export default function LeftBar() {
           <Grid container>
             <NavRow>Twitterbean</NavRow>
             <NavItem to="/">Home</NavItem>
-            <NavItem to="/auth/logout">Logout</NavItem>
+            {state.user ? (
+              <NavItem to="/auth/logout">Logout</NavItem>
+            ) : (
+              <NavItem to="/auth/login">Login</NavItem>
+            )}
             <NavRow>
               <NavButton>Tweet</NavButton>
             </NavRow>

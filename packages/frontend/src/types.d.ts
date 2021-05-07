@@ -10,3 +10,12 @@ interface User {
   fullName: string;
   handle: string;
 }
+
+interface State {
+  user: User | null;
+}
+
+interface Action {
+  type: "setUser" | "unsetUser";
+  payload: any;
+}

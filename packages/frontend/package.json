@@ -9,6 +9,7 @@
     "dev": "parcel index.html "
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
     "parcel-bundler": "^1.12.5",
     "typescript": "^4.2.4"
   },
