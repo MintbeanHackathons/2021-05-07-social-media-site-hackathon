@@ -12,7 +12,8 @@
     ]
   },
   "scripts": {
-    "start": "concurrently 'cd packages/backend && yarn start' 'cd packages/frontend && yarn start'"
+    "start": "concurrently 'cd packages/backend && yarn start' 'cd packages/frontend && yarn start'",
+    "dev": "concurrently 'cd packages/backend && yarn dev' 'cd packages/frontend && yarn dev'"
   },
   "devDependencies": {
     "concurrently": "^6.0.2"

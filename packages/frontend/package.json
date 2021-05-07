@@ -5,6 +5,10 @@
   "author": "Monarch Wadia",
   "license": "MIT",
   "scripts": {
-    "start": "echo 'Frontend start command is disabled.'"
+    "start": "echo 'Frontend start command is disabled.'",
+    "dev": "parcel index.html "
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
   }
 }

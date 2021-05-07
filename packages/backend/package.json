@@ -5,6 +5,7 @@
   "author": "Monarch Wadia",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   }
 }
