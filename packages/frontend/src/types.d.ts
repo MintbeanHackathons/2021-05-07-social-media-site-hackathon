@@ -1,12 +1,12 @@
 interface Tweet {
-  id: number;
+  id: string;
   user: User;
   text: string;
   createdAt: string;
 }
 
 interface User {
-  id: number;
+  id: string;
   fullName: string;
   handle: string;
 }

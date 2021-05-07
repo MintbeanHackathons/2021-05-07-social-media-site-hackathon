@@ -15,9 +15,10 @@ mongoose.connect("mongodb://localhost/twitterbean", {
   useCreateIndex: true,
 });
 
-// register all schemas
-const libs = requireAll(path.join(__dirname, "schemas"));
-console.log(libs);
+requireAll({
+  dirname: path.join(__dirname, "schemas"),
+  filter: ".*(js|ts)",
+});
 
 // enable app to use JSON bodies in POST requests.
 app.use(json());

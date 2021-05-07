@@ -1,0 +1,7 @@
+POST http://localhost:3000/auth/register
+content-type: application/json
+
+{
+  "handle": "test",
+  "password": "password"
+}
