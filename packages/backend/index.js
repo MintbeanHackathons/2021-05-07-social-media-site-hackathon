@@ -1,6 +1,7 @@
 const express = require("express");
 const { json } = require("body-parser");
 const authRoutes = require("../backend/auth/routes");
+const postRoutes = require("../backend/posts/routes");
 const mongoose = require("mongoose");
 const path = require("path");
 const requireAll = require("require-all");
@@ -44,6 +45,7 @@ app.use(
 );
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 const server = app.listen(3000, () => {
   console.log("Now listening on port:", server.address().port);
