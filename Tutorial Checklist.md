@@ -1,6 +1,7 @@
 # Root project
 
 - Monorepo
+- Yarn
 - Yarn Workspaces
 - Concurrently
 - http folder and the REST client
