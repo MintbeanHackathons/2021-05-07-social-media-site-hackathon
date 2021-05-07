@@ -1,0 +1,20 @@
+{
+  "name": "2021-05-07-social-media-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Monarch Wadia <monarch@mintbean.io>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "frontend",
+      "backend"
+    ]
+  },
+  "scripts": {
+    "start": "concurrently 'cd packages/backend && yarn start' 'cd packages/frontend && yarn start'"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.2"
+  }
+}

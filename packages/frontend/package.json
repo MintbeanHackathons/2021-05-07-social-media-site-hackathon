@@ -1,0 +1,10 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Monarch Wadia",
+  "license": "MIT",
+  "scripts": {
+    "start": "echo 'Frontend start command is disabled.'"
+  }
+}
