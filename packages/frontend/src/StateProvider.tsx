@@ -11,7 +11,6 @@ const initialState: State = {
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "setUser":
-      debugger;
       return { ...state, user: action.payload };
     case "unsetUser":
       return { ...state, user: null };
