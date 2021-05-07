@@ -4,7 +4,12 @@ import React from "react";
 export default function RightBar() {
   return (
     <Grid item xs={4}>
-      RightBar
+      <Grid container>
+        <Grid item xs={6}>
+          RightBar
+        </Grid>
+        <Grid item xs={12} /> {/* Leave half the page */}
+      </Grid>
     </Grid>
   );
 }
