@@ -5,12 +5,9 @@
   "author": "Monarch Wadia <monarch@mintbean.io>",
   "license": "MIT",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "frontend",
-      "backend"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "start": "concurrently 'cd packages/backend && yarn start' 'cd packages/frontend && yarn start'",
     "dev": "concurrently 'cd packages/backend && yarn dev' 'cd packages/frontend && yarn dev'",

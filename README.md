@@ -59,3 +59,21 @@ We're using the [useReducer](https://alligator.io/react/usereducer/) hook to man
 ## Backend
 
 We're using Express and Mongoose/MongoDB on the backend. All code is custom-built, and we're using as few pieces as possible in order to maximize learning potential from this project.
+
+## Known Issues You Can Tackle First
+
+- You will have to figure out deployment.
+- Error handling is currently being done via `alert` boxes. It should be done via actual popup modals built in JavaScript. See [Snackbar Component](https://material-ui.com/components/snackbars/)
+- Posting a tweet will fail silently, with a console error, if you are not logged in.
+- Some of the code is not very DRY, especially between Register and Login.
+- The project is half JS, half TS. It should be one or the other, but having both just causes confusion and issues.
+- The `req.sessions.user` type needs `//@ts-ignore` in order to work, because the global declaration in `types.d.ts` is not set correctly. (If you don't understand what this means, that's fine. Just be mindful that it always needs a `//@ts-ignore` on the preceding line.)
+
+## Suggested Features
+
+- Profile page
+- Ability to set your photo, bio and fullname
+- Ability to @tweet at people
+- Hashtags
+- Tweet search
+- News feed
