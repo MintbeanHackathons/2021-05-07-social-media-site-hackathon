@@ -6,7 +6,6 @@ import RightBar from "./layout/RightBar";
 
 import LoginPage from "./auth/LoginPage";
 import ProfilePage from "./auth/ProfilePage";
-import ResetPasswordPage from "./auth/ResetPasswordPage";
 import LogoutPage from "./auth/LogoutPage";
 import FeedPage from "./feed/FeedPage";
 import NotFoundPage from "./layout/NotFoundPage";
@@ -23,9 +22,6 @@ export default function App() {
             </Route>
             <Route path="/auth/login">
               <LoginPage />
-            </Route>
-            <Route path="/auth/reset">
-              <ResetPasswordPage />
             </Route>
             <Route path="/auth/logout">
               <LogoutPage />
