@@ -1,4 +1,4 @@
-import { FormControl, Grid, Input, Box } from "@material-ui/core";
+import { FormControl, Grid, Input, Box, Typography } from "@material-ui/core";
 import React, { useContext, useState } from "react";
 import { StateContext, ContextType } from "../StateProvider";
 import { register } from "./authApi";
@@ -31,7 +31,15 @@ export default function LoginPage() {
   return (
     <Grid container>
       <Grid item xs={8}>
-        {/* Empty grid for spacing */}
+        <Grid container>
+          <Grid item xs={2}></Grid>
+          <Grid item xs={10}>
+            <Typography variant="h4">Welcome to Twitterbean!</Typography>
+            <Typography variant="h6">Make new friends!</Typography>
+            <Typography variant="h6">Talk about things!</Typography>
+            <Typography variant="h6">Be part of a community!</Typography>
+          </Grid>
+        </Grid>
       </Grid>
       <Grid item xs={4}>
         <Grid container>
